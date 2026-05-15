@@ -601,6 +601,7 @@
       body { background: #fff; }
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 <div class="page">
@@ -620,7 +621,7 @@
         <a href="https://www.linkedin.com/in/polina-uspenska" target="_blank">🔗 LinkedIn</a>
         <span>📍 Dubai, UAE</span>
       </div>
-      <button class="btn-download" onclick="window.print()">⬇ Download CV PDF</button>
+      <button class="btn-download" onclick="downloadPDF()">⬇ Download CV PDF</button>
     </div>
   </div>
 
@@ -946,5 +947,26 @@
   <div class="footer">Polina Uspenska &nbsp;·&nbsp; Digital &amp; E-Commerce Project Manager &nbsp;·&nbsp; Dubai, UAE</div>
 
 </div>
+<script>
+  function downloadPDF() {
+    const btn = document.querySelector('.btn-download');
+    btn.textContent = '⏳ Generating...';
+    btn.disabled = true;
+
+    const element = document.querySelector('.page');
+    const opt = {
+      margin:       0,
+      filename:     'Polina_Uspenska_CV.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true, scrollY: 0 },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+      btn.textContent = '⬇ Download CV PDF';
+      btn.disabled = false;
+    });
+  }
+</script>
 </body>
 </html>
