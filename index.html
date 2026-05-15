@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polina Uspenska — E-Commerce Operations & Digital Project Manager</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f4f0;
+      color: #2c2c2c;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 960px;
+      margin: 40px auto;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    /* HEADER */
+    .header {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      background: #1a1a2e;
+      color: #fff;
+    }
+
+    .header-photo {
+      width: 200px;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .header-photo-placeholder {
+      width: 200px;
+      height: 220px;
+      background: #2d2d4e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      color: #c8a96e;
+    }
+
+    .header-info {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header-info h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .header-info .title {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c8a96e;
+      margin: 8px 0 20px;
+      border-bottom: 1px solid #c8a96e44;
+      padding-bottom: 12px;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .contacts a {
+      color: #ccc;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contacts a:hover { color: #c8a96e; }
+
+    .contact-icon {
+      font-style: normal;
+      font-size: 1rem;
+    }
+
+    /* BODY */
+    .body {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: #f9f8f5;
+      padding: 36px 28px;
+      border-right: 1px solid #e8e8e0;
+    }
+
+    .sidebar-section { margin-bottom: 32px; }
+
+    .sidebar-section h3 {
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #c8a96e;
+      border-bottom: 2px solid #c8a96e;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+
+    .sidebar-section ul {
+      list-style: none;
+    }
+
+    .sidebar-section ul li {
+      font-size: 0.88rem;
+      color: #444;
+      padding: 4px 0;
+      border-bottom: 1px solid #e8e8e0;
+    }
+
+    .sidebar-section ul li:last-child { border-bottom: none; }
+
+    .skill-tag {
+      display: inline-block;
+      background: #1a1a2e;
+      color: #c8a96e;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin: 3px 2px;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: #444;
+      padding: 5px 0;
+      border-bottom: 1px solid #e8e8e0;
+    }
+
+    .lang-item .lang-level {
+      color: #999;
+      font-size: 0.8rem;
+    }
+
+    /* MAIN */
+    .main {
+      padding: 36px 40px;
+    }
+
+    .section { margin-bottom: 36px; }
+
+    .section h2 {
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #c8a96e;
+      border-bottom: 2px solid #c8a96e;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+
+    .profile-text {
+      font-size: 0.93rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* EXPERIENCE */
+    .job { margin-bottom: 28px; }
+    .job:last-child { margin-bottom: 0; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: #1a1a2e;
+    }
+
+    .job-period {
+      font-size: 0.8rem;
+      color: #c8a96e;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .job-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job-bullets li {
+      font-size: 0.88rem;
+      color: #444;
+      padding: 3px 0 3px 14px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .job-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #c8a96e;
+      font-size: 0.75rem;
+      top: 5px;
+    }
+
+    /* CERT */
+    .cert-item {
+      font-size: 0.87rem;
+      color: #444;
+      padding: 5px 0;
+      border-bottom: 1px solid #e8e8e0;
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-item strong { color: #1a1a2e; }
+
+    /* TOOLS */
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-tag {
+      background: #f0ede6;
+      color: #444;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #1a1a2e;
+      color: #999;
+      text-align: center;
+      font-size: 0.78rem;
+      padding: 14px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 700px) {
+      .header { grid-template-columns: 1fr; }
+      .header-photo, .header-photo-placeholder { width: 100%; height: 200px; }
+      .body { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid #e8e8e0; }
+      .page { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-photo-placeholder">👩</div>
+    <div class="header-info">
+      <h1>Polina Uspenska</h1>
+      <div class="title">E-Commerce Operations &amp; Digital Project Manager</div>
+      <div class="contacts">
+        <a href="mailto:polya.uspenskaya@gmail.com"><i class="contact-icon">✉</i> polya.uspenskaya@gmail.com</a>
+        <a href="tel:+971588248074"><i class="contact-icon">📞</i> +971 58 824 80 74</a>
+        <a href="https://www.linkedin.com/in/polina-uspenska" target="_blank"><i class="contact-icon">🔗</i> LinkedIn</a>
+        <a><i class="contact-icon">📍</i> Dubai, UAE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-section">
+        <h3>Skills</h3>
+        <ul>
+          <li>Project Management (Agile)</li>
+          <li>E-commerce Platform Dev &amp; Management</li>
+          <li>CRM &amp; Automation</li>
+          <li>Digital Marketing &amp; Strategy</li>
+          <li>Team Leadership &amp; Training</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Education</h3>
+        <div style="font-size:0.88rem;color:#444;">
+          <strong style="color:#1a1a2e;">Master of Computer Science</strong><br>
+          National Aviation University<br>
+          Kyiv, Ukraine | <strong>2018</strong>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Certifications</h3>
+        <div class="cert-item"><strong>Brand Management</strong><br>London School of Business (Coursera) | 2023</div>
+        <div class="cert-item"><strong>Entrepreneurship</strong><br>Unit School of Business, Kyiv | 2021</div>
+        <div class="cert-item"><strong>Google Ads Certificates</strong> | 2018</div>
+        <div class="cert-item"><strong>Software Testing Essentials</strong><br>QASTARTUP, Kyiv | 2015</div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Languages</h3>
+        <div class="lang-item"><span>English</span><span class="lang-level">Advanced</span></div>
+        <div class="lang-item"><span>Ukrainian</span><span class="lang-level">Fluent</span></div>
+        <div class="lang-item"><span>Russian</span><span class="lang-level">Fluent</span></div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Additional Skills</h3>
+        <div>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <div class="section">
+        <h2>Profile</h2>
+        <p class="profile-text">With over 8 years of expertise in managing teams and digital processes. Proven ability to set up and optimize processes from scratch. Skilled in Shopify management, CRM automation, order fulfilment workflows and cross-functional operations. Experienced in leading international teams and delivering measurable business growth. Based in Dubai.</p>
+      </div>
+
+      <div class="section">
+        <h2>Experience</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Digital Coordinator</span>
+            <span class="job-period">Jun 2024 – Jan 2025</span>
+          </div>
+          <div class="job-company">Kristina Fidelskaya · Dubai, UAE</div>
+          <ul class="job-bullets">
+            <li>Led renewal and optimization of the brand's Shopify website, improving UX and back-end functionality.</li>
+            <li>Oversaw integration of a new CRM system, ensuring smooth data migration across departments.</li>
+            <li>Consolidated and migrated data from legacy systems using automated scripts and spreadsheet workflows.</li>
+            <li>Developed and maintained import/export automation processes for warehouse inventory management.</li>
+            <li>Provided ongoing technical support including hardware and software troubleshooting.</li>
+            <li>Assisted with visual content creation: image editing (Photoshop), presentation design, and creative assets.</li>
+            <li>Managed website-related photoshoots, from planning to post-production coordination.</li>
+            <li>Built communication workflows and sequences for customer engagement and retention.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Digital E-commerce Manager / Operations Manager</span>
+            <span class="job-period">Nov 2021 – Oct 2023</span>
+          </div>
+          <div class="job-company">Bullz Media · Tirana, Albania</div>
+          <ul class="job-bullets">
+            <li>Launched a US duty-free e-commerce shop, achieving <strong>$25,000 monthly turnover within 3 months</strong>.</li>
+            <li>Managed online acquisition with focus on CPC and CPA for e-commerce business.</li>
+            <li>Monitored budgets and adjusted ad activities to improve ROAS.</li>
+            <li>Supported paid media through asset trafficking, tracking URL creation and pixels.</li>
+            <li>Provided weekly performance reports to stakeholders.</li>
+            <li>Integrated CRM (Keap), automating order processing, payment control, and delivery tracking.</li>
+            <li>Developed marketing strategies including email campaigns, increasing sales and return consumer rate.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Technical Project Manager (Web Development Operations)</span>
+            <span class="job-period">Oct 2020 – Nov 2021</span>
+          </div>
+          <div class="job-company">Wezom · Kyiv, Ukraine</div>
+          <ul class="job-bullets">
+            <li>Managed complex e-commerce projects for fashion and pet retail clients.</li>
+            <li>Coordinated UI/UX design and development processes, ensuring timely delivery.</li>
+            <li>Created technical requirements and managed cross-functional team collaboration.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Head of Digital Marketing</span>
+            <span class="job-period">Apr 2020 – Oct 2020</span>
+          </div>
+          <div class="job-company">bonlook.ua · Kyiv, Ukraine</div>
+          <ul class="job-bullets">
+            <li>Boosted site traffic by <strong>20%</strong> through strategic online marketing.</li>
+            <li>Managed PPC, SEO, and CPA campaigns, optimizing performance and conversions.</li>
+            <li>Led content management, design, and social media teams.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Head of E-commerce</span>
+            <span class="job-period">Jan 2019 – Mar 2020</span>
+          </div>
+          <div class="job-company">Sanahunt Luxury Department Store · Kyiv, Ukraine</div>
+          <ul class="job-bullets">
+            <li>Increased site traffic and engagement via effective online marketing strategies.</li>
+            <li>Enhanced payment methods and managed budgets, achieving financial targets.</li>
+            <li>Oversaw content management and customer service teams.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Project Manager, Digital Marketing Operations</span>
+            <span class="job-period">May 2018 – Dec 2018</span>
+          </div>
+          <div class="job-company">Dentsu Aegis Network · Kyiv, Ukraine</div>
+          <ul class="job-bullets">
+            <li>Delivered paid traffic ads and site development tasks for major clients.</li>
+            <li>Conducted strategic planning and managed contractors for web development and design.</li>
+            <li>Created training materials and knowledge bases for team managers.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Project Manager, Digital Marketing Operations</span>
+            <span class="job-period">Sep 2016 – May 2018</span>
+          </div>
+          <div class="job-company">Netpeak · Kyiv, Ukraine</div>
+          <ul class="job-bullets">
+            <li>Managed <strong>20 PPC and SEO projects</strong> simultaneously, ensuring timely delivery.</li>
+            <li>Coordinated client communications, project timelines, and resource allocation.</li>
+            <li>Enhanced service quality and optimized processes for improved client satisfaction.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Project Manager, Digital Marketing Operations</span>
+            <span class="job-period">Sep 2015 – Sep 2016</span>
+          </div>
+          <div class="job-company">Abweb · Kyiv, Ukraine</div>
+          <ul class="job-bullets">
+            <li>Managed <strong>28 projects concurrently</strong>, focusing on client communication and service delivery.</li>
+            <li>Developed project plans, budgets, and execution strategies to meet client expectations.</li>
+            <li>Analyzed project performance and implemented solutions for improvement.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="section">
+        <h2>Tools &amp; Technologies</h2>
+        <div class="tools-grid">
+          <span class="tool-tag">Shopify</span>
+          <span class="tool-tag">WordPress</span>
+          <span class="tool-tag">WooCommerce</span>
+          <span class="tool-tag">OpenCart</span>
+          <span class="tool-tag">Zapier</span>
+          <span class="tool-tag">Mailchimp</span>
+          <span class="tool-tag">Stripo</span>
+          <span class="tool-tag">Klaviyo</span>
+          <span class="tool-tag">Trello</span>
+          <span class="tool-tag">ClickUp</span>
+          <span class="tool-tag">Notion</span>
+          <span class="tool-tag">Slack</span>
+          <span class="tool-tag">Monday.com</span>
+          <span class="tool-tag">HubSpot</span>
+          <span class="tool-tag">Jira</span>
+          <span class="tool-tag">Keap</span>
+          <span class="tool-tag">SimilarWeb</span>
+          <span class="tool-tag">Ahrefs</span>
+          <span class="tool-tag">SEMrush</span>
+          <span class="tool-tag">Hotjar</span>
+          <span class="tool-tag">Google Analytics</span>
+          <span class="tool-tag">Google Data Studio</span>
+          <span class="tool-tag">Supermetrics</span>
+          <span class="tool-tag">Google Ads</span>
+          <span class="tool-tag">Meta Business Suite</span>
+          <span class="tool-tag">Google Sheets</span>
+          <span class="tool-tag">Canva</span>
+          <span class="tool-tag">Photoshop</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="footer">Polina Uspenska &nbsp;·&nbsp; E-Commerce Operations &amp; Digital Project Manager &nbsp;·&nbsp; Dubai, UAE</div>
+
+</div>
+</body>
+</html>
